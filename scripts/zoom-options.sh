@@ -10,7 +10,7 @@ resize() {
         return
     fi
     ORIGIN_SESSION="$(envvar_value ORIGIN_SESSION)"
-    if [ $((current_height+step)) -gt "$(tmux display -p -t "$ORIGIN_SESSION" '#{window_height}')" ] || 
+    if [ $((current_height+step)) -gt "$(tmux display -p -t "$ORIGIN_SESSION" '#{window_height}')" ] ||
         [ $((current_width+step)) -gt "$(tmux display -p -t "$ORIGIN_SESSION" '#{window_width}')" ]; then
         return
     fi
@@ -28,8 +28,8 @@ full_screen() {
 }
 
 reset_size() {
-    tmux setenv -g FLOAX_WIDTH "$(tmux_option_or_fallback '@floax-width' '80%')" 
-    tmux setenv -g FLOAX_HEIGHT "$(tmux_option_or_fallback '@floax-height' '80%')" 
+    tmux setenv -g FLOAX_WIDTH "$(tmux_option_or_fallback '@floax-width' '80%')"
+    tmux setenv -g FLOAX_HEIGHT "$(tmux_option_or_fallback '@floax-height' '80%')"
     tmux detach-client
     tmux_popup
 }
@@ -41,7 +41,7 @@ unlock_bindings() {
 
 lock_bindings() {
     unset_bindings
-    tmux bind -n C-M-u run "$CURRENT_DIR/zoom-options.sh unlock" 
+    tmux bind -n C-M-u run "$CURRENT_DIR/zoom-options.sh unlock"
     change_popup_title "Bindings locked. Unlock with [Ctrl-Alt-u]"
 }
 
