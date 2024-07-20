@@ -3,7 +3,7 @@
 direction=$1
 x=$(tmux display-message -p '#{popup_centre_x}')
 y=$(tmux display-message -p '#{popup_centre_y}')
-case $direction in 
+case $direction in
     up)
         step=$((y-10))
         motion="-y $step"
